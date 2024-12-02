@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "e9da4981-0f5d-41a6-b6c4-50d32fd782eb",
+		"name": "Haribay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12959660",
+		"_collection_link": "https://universal-shuttle-929836.postman.co/workspace/New-Team-Workspace~a31e2d38-4138-4847-a8ff-9c9f60d33378/collection/12959660-e9da4981-0f5d-41a6-b6c4-50d32fd782eb?action=share&source=collection_link&creator=12959660"
+	},
+	"item": [
+		{
+			"name": "/v1/payouts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}v1/payouts",
+					"host": [
+						"{{baseurl}}v1"
+					],
+					"path": [
+						"payouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/balances",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}v1/balances",
+					"host": [
+						"{{baseurl}}v1"
+					],
+					"path": [
+						"balances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/transactions/:reference/settle",
+			"request": {
+				"method": "PATCH",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "v1/transactions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"virtual_account\",\n  \"value\": 3000,\n  \"description\": \"Data purchase\",\n  \"currency\": \"USD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}v1/transactions",
+					"host": [
+						"{{baseurl}}v1"
+					],
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}v1/transactions",
+					"host": [
+						"{{baseurl}}v1"
+					],
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

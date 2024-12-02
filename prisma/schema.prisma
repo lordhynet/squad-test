@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Use .env for your PostgreSQL connection
+}
+
+model Transaction {
+  id          Int      @id @default(autoincrement()) // Auto-incremented primary key
+  reference   String   @unique                      // Unique transaction reference
+  type        String                                 // Type: "card" or "virtual_account"
+  value       Float                                  // Transaction value
+  status      String                                 // Status: "pending" or "success"
+  fee         Float                                  // Processing fee
+  cardLast4   String?                                // Last 4 digits of card (nullable for virtual accounts)
+  description String                                 // Description of the transaction
+  currency    String                                 // Currency (e.g., "NGN", "USD")
+  createdAt   DateTime @default(now())               // Auto-generated timestamp
+  updatedAt   DateTime @updatedAt                    // Auto-updated timestamp (useful for tracking changes)
+}
+
+model Payout {
+  id          Int      @id @default(autoincrement()) // Auto-incremented primary key
+  total       Float                                  // Total payout amount
+  deductedFee Float                                  // Total fees deducted from the payout
+  createdAt   DateTime @default(now())               // Auto-generated timestamp
+}
